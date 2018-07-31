@@ -1,11 +1,11 @@
 Given("basic attributes of coin are added") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @coin = "{name:''}"
 end
 
 When("the coin is going to be saved") do
-  pending # Write code here that turns the phrase above into concrete actions
+  `echo #{@coin} >> coin.json`  
 end
 
 Then("coin has been stored") do
-  pending # Write code here that turns the phrase above into concrete actions
+  `cat coin.json`
 end
