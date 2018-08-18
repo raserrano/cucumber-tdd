@@ -7,28 +7,50 @@ Feature: User can add coin
   - Year: mint year, usually visible in the observe
   - Country
   - Metal: Set of percentages of metals, eg. 80% silver 20% copper
+  Required attributes are: value, country, year and currency.
 
-  Scenario: User add coin with basic attributes
-    Given basic attributes of coin are added
+  Scenario: User add coin with required attributes
+    Given required attributes of coin are added
     When the coin is going to be saved
     Then coin has been stored
 
   Scenario: User add coin with extra attributes
-    Given basic attributes of coin are added
+    Given extra attributes of coin are added
     When the coin is going to be saved
     Then coin has been stored
 
-  Scenario: User cannot add coin if required attribute is missing
-    Given basic attributes of coin are added
+  Scenario: User cannot add coin if required attribute year is missing
+    Given required attributes of coin are added
+    And attribute 'year' is removed
     When the coin is going to be saved
     Then coin has been stored
 
-  Scenario: User cannot add coin if required attribute is empty
-    Given basic attributes of coin are added
+  Scenario: User cannot add coin if required attribute country is missing
+    Given required attributes of coin are added
+    And attribute 'country' is removed
+    When the coin is going to be saved
+    Then coin has been stored
+
+  Scenario: User cannot add coin if required attribute country is empty
+    Given required attributes of coin are added
+    And attribute 'country' is set to be ''
+    When the coin is going to be saved
+    Then coin has been stored
+
+  Scenario: User cannot add coin if required attribute currency is empty
+    Given required attributes of coin are added
+    And attribute 'currency' is set to be ''
     When the coin is going to be saved
     Then coin has been stored
 
 Scenario: User cannot add coin without attributes
-    Given basic attributes of coin are added
+    Given required attributes of coin are added
+    And all required attributes are removed
+    When the coin is going to be saved
+    Then coin has been stored
+
+Scenario: User cannot add coin with empty attributes
+    Given required attributes of coin are added
+    And all required attributes are set to be ''
     When the coin is going to be saved
     Then coin has been stored

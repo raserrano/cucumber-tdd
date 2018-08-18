@@ -21,4 +21,6 @@ and not what is required.
 
 ## TODO
 - [x] Create our first feature file documenting a client need
-- [ ] Review the requirements that might not be clear
+- [x] Review the requirements that might not be clear
+- [ ] Code what is needed to have the tests pass and avoid unnecesary code
+- [ ] Understanding tags, hooks and groups
